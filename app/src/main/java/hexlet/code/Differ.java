@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Differ {
-    public static String generate(String filepath1, String filepath2) throws Exception{
+    public static String generate(String filepath1, String filepath2) throws Exception {
         Map<String, Object> fileData1 = Cli.jsonIntoMap(filepath1);
         Map<String, Object> fileData2 = Cli.jsonIntoMap(filepath2);
         StringBuilder diffResult = new StringBuilder();

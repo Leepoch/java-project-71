@@ -13,6 +13,6 @@ public class Cli {
         Path absolutePath = Paths.get(filepath).toAbsolutePath().normalize();
         String jsonData = Files.readString(absolutePath);
         ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(jsonData, new TypeReference<>(){});
+        return objectMapper.readValue(jsonData, new TypeReference<>() { });
     }
 }
