@@ -1,2 +1,29 @@
+# Difference calculator
+***
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Leepoch/java-project-71/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Leepoch/java-project-71/actions)
+### Tests and maintainability:
+[![Maintainability](https://api.codeclimate.com/v1/badges/e223a572d8f30853fd7d/maintainability)](https://codeclimate.com/github/Leepoch/java-project-71/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/e223a572d8f30853fd7d/test_coverage)](https://codeclimate.com/github/Leepoch/java-project-71/test_coverage)
+
+***
+## To start
+
+```bash
+git clone git@github.com:Leepoch/java-project-71.git
+```
+
+## Build
+
+```bash
+make build
+```
+
+## Run
+
+```bash
+make run-dist
+```
+***
+## The difference between flat files
+[![asciicast](https://asciinema.org/a/txPx3aLvNumTh4LQgmYMXUOyG.svg)](https://asciinema.org/a/txPx3aLvNumTh4LQgmYMXUOyG)
