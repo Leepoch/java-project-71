@@ -8,10 +8,7 @@
 name: Java CI with Gradle
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  - push
 env:
   CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
 jobs:
@@ -36,9 +33,14 @@ jobs:
       with:
         gradle-version: '8.5'
 
-    - name: Build with Gradle 8.5
-      run: gradle build
-
+    - name: Publish code coverage
+      uses: paambaati/codeclimate-action@v5.0.0
+      env:
+        CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
+        JACOCO_SOURCE_PATH: src/main/java
+      with:
+        coverageCommand: make report
+        coverageLocations: ${{github.workspace}}/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
     # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
     #
