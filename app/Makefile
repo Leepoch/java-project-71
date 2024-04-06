@@ -13,7 +13,7 @@ install:
 	./gradlew clean install
 
 run-dist:
-	./build/install/app/bin/app src/main/java/hexlet/code/file1.yml src/main/java/hexlet/code/file2.yml
+	./build/install/app/bin/app src/main/resources/file1.yml src/main/resources/file2.yml
 
 run:
 	./gradlew run

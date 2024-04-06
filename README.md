@@ -22,6 +22,7 @@ make build
 ## Run
 
 ```bash
+make install
 make run-dist
 ```
 ***
