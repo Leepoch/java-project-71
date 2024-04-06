@@ -25,5 +25,7 @@ make build
 make run-dist
 ```
 ***
-## The difference between flat files
+## The difference between flat json files
 [![asciicast](https://asciinema.org/a/txPx3aLvNumTh4LQgmYMXUOyG.svg)](https://asciinema.org/a/txPx3aLvNumTh4LQgmYMXUOyG)
+## The difference between flat yml files
+[![asciicast](https://asciinema.org/a/kiNUo9M08sE6EJhsHsZZyIGqa.svg)](https://asciinema.org/a/kiNUo9M08sE6EJhsHsZZyIGqa)
