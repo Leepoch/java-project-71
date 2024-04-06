@@ -1,3 +1,6 @@
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+
 plugins {
     application
     checkstyle
@@ -17,24 +20,21 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     implementation("info.picocli:picocli:4.7.5")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.16.1")
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.15.3")
 }
 
 tasks.test {
     useJUnitPlatform()
+    testLogging {
+        exceptionFormat = TestExceptionFormat.FULL
+        events = mutableSetOf(TestLogEvent.FAILED, TestLogEvent.PASSED, TestLogEvent.SKIPPED)
+        // showStackTraces = true
+        // showCauses = true
+        showStandardStreams = true
+    }
     finalizedBy(tasks.jacocoTestReport)
 }
-tasks.jacocoTestReport {
-    dependsOn(tasks.test)
-    reports {
-        xml.required = false
-        csv.required = false
-        html.outputLocation = layout.buildDirectory.dir("jacocoHtml")
-    }
-}
-jacoco {
-    toolVersion = "0.8.11"
-    reportsDirectory = layout.buildDirectory.dir("customJacocoReportDir")
-}
+tasks.jacocoTestReport { reports { xml.required.set(true) } }
 
 application {
     mainClass = "hexlet.code.App"
