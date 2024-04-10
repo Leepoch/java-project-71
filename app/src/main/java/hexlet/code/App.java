@@ -17,7 +17,7 @@ public class App implements Callable<Integer> {
     private String filepath2;
 
     @Option(names = {"-f", "--format"}, defaultValue = "stylish", description = "output format [default: stylish]")
-    private String format = "${DEFAULT-VALUE}";
+    private String format;
 
     public static void main(String[] args) {
         int exitCode = new CommandLine(new App()).execute(args);
@@ -26,7 +26,7 @@ public class App implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        System.out.println(Formatter.generate(filepath1, filepath2));
+        System.out.println(Formatter.generate(filepath1, filepath2, format));
         return 0;
     }
 }

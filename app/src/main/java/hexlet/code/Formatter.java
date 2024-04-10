@@ -1,11 +1,13 @@
 package hexlet.code;
 
+import hexlet.code.formatters.FormatterPlain;
+import hexlet.code.formatters.FormatterStylish;
+
 import java.util.Map;
 import java.util.HashMap;
-import java.util.List;
 
 public class Formatter {
-    public static String generate(String filepath1, String filepath2) throws Exception {
+    public static String generate(String filepath1, String filepath2, String format) throws Exception {
         var fileFormat = filepath1.split("\\.")[1];
         Map<String, Object> fileData1 = new HashMap<>();
         Map<String, Object> fileData2 = new HashMap<>();
@@ -19,43 +21,12 @@ public class Formatter {
             throw new Exception("Invalid format");
         }
         var diff = Differ.getDiff(fileData1, fileData2);
-        return formaterStylish(diff);
-    }
-
-    public static String formaterStylish(List<FieldData> diff) {
-        StringBuilder diffInStylish = new StringBuilder();
-        diffInStylish.append("{\n");
-        for (var field : diff) {
-            var state = field.getState();
-            var key = field.getKey();
-            var value = String.valueOf(field.getValue());
-            if (state.equals("notChanged")) {
-                diffInStylish.append(getField(" ", key, value));
-            }
-            if (state.equals("changedFrom")) {
-                diffInStylish.append(getField("-", key, value));
-            }
-            if (state.equals("changedTo")) {
-                diffInStylish.append(getField("+", key, value));
-            }
-            if (state.equals("deleted")) {
-                diffInStylish.append(getField("-", key, value));
-            }
-            if (state.equals("added")) {
-                diffInStylish.append(getField("+", key, value));
-            }
+        var diffInFormat = "";
+        if (format.equals("stylish")) {
+            diffInFormat = FormatterStylish.formater(diff);
+        } else {
+            diffInFormat = FormatterPlain.formatter(diff);
         }
-        diffInStylish.append("}");
-        return diffInStylish.toString();
-    }
-
-    public static String getField(String sign, String key, Object value) {
-        return "  "
-                + sign
-                + " "
-                + key
-                + ": "
-                + value
-                + "\n";
+        return diffInFormat;
     }
 }

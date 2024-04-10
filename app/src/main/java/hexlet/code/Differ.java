@@ -19,7 +19,7 @@ public class Differ {
                 if (valueFieldFile1.equals(valueFieldFile2)) {
                     diff.add(new FieldData("notChanged", key, value));
                 } else {
-                    diff.add(new FieldData("changedFrom", key, String.valueOf(fileData1.get(key))));
+                    diff.add(new FieldData("changedFrom", key, fileData1.get(key)));
                     diff.add(new FieldData("changedTo", key, value));
                 }
             } else if (fileData1.containsKey(key) && !fileData2.containsKey(key)) {

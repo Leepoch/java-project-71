@@ -30,5 +30,7 @@ make run-dist
 [![asciicast](https://asciinema.org/a/txPx3aLvNumTh4LQgmYMXUOyG.svg)](https://asciinema.org/a/txPx3aLvNumTh4LQgmYMXUOyG)
 ## The difference between flat yml files
 [![asciicast](https://asciinema.org/a/kiNUo9M08sE6EJhsHsZZyIGqa.svg)](https://asciinema.org/a/kiNUo9M08sE6EJhsHsZZyIGqa)
-## The difference between the attached files
+## The difference between the attached files in stylish format
 [![asciicast](https://asciinema.org/a/8XEEYOrMJ0xEdNZTTYrnw6qfw.svg)](https://asciinema.org/a/8XEEYOrMJ0xEdNZTTYrnw6qfw)
+## The difference between the attached files in plain format
+[![asciicast](https://asciinema.org/a/wVmL1P5qIk2jODqPkTBHvhgf7.svg)](https://asciinema.org/a/wVmL1P5qIk2jODqPkTBHvhgf7)
