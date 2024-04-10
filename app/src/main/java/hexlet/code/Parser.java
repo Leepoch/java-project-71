@@ -20,6 +20,6 @@ public class Parser {
         Path absolutePath = Paths.get(filepath).toAbsolutePath().normalize();
         String ymlData = Files.readString(absolutePath);
         YAMLMapper yamlMapper = new YAMLMapper();
-        return yamlMapper.readValue(ymlData, new TypeReference<>(){});
+        return yamlMapper.readValue(ymlData, new TypeReference<>() { });
     }
 }

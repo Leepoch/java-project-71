@@ -1,6 +1,8 @@
 package hexlet.code;
 
-import java.util.*;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.List;
 
 public class Formatter {
     public static String generate(String filepath1, String filepath2) throws Exception {
@@ -24,20 +26,23 @@ public class Formatter {
         StringBuilder diffInStylish = new StringBuilder();
         diffInStylish.append("{\n");
         for (var field : diff) {
-            if (field.getState().equals("notChanged")) {
-                diffInStylish.append(getField(" ", field.getKey(), field.getValue()));
+            var state = field.getState();
+            var key = field.getKey();
+            var value = String.valueOf(field.getValue());
+            if (state.equals("notChanged")) {
+                diffInStylish.append(getField(" ", key, value));
             }
-            if (field.getState().equals("changedFrom")) {
-                diffInStylish.append(getField("-", field.getKey(), field.getValue()));
+            if (state.equals("changedFrom")) {
+                diffInStylish.append(getField("-", key, value));
             }
-            if (field.getState().equals("changedTo")) {
-                diffInStylish.append(getField("+", field.getKey(), field.getValue()));
+            if (state.equals("changedTo")) {
+                diffInStylish.append(getField("+", key, value));
             }
-            if (field.getState().equals("deleted")) {
-                diffInStylish.append(getField("-", field.getKey(), field.getValue()));
+            if (state.equals("deleted")) {
+                diffInStylish.append(getField("-", key, value));
             }
-            if (field.getState().equals("added")) {
-                diffInStylish.append(getField("+", field.getKey(), field.getValue()));
+            if (state.equals("added")) {
+                diffInStylish.append(getField("+", key, value));
             }
         }
         diffInStylish.append("}");
@@ -45,14 +50,12 @@ public class Formatter {
     }
 
     public static String getField(String sign, String key, Object value) {
-        StringBuilder field = new StringBuilder();
-        return field.append("  ")
-            .append(sign)
-            .append(" ")
-            .append(key)
-            .append(": ")
-            .append(value)
-            .append("\n")
-            .toString();
+        return "  "
+                + sign
+                + " "
+                + key
+                + ": "
+                + value
+                + "\n";
     }
 }

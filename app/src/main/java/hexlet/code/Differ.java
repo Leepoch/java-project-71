@@ -17,15 +17,15 @@ public class Differ {
                 var valueFieldFile1 = String.valueOf(fileData1.get(key));
                 var valueFieldFile2 = String.valueOf(fileData2.get(key));
                 if (valueFieldFile1.equals(valueFieldFile2)) {
-                    diff.add(new FieldData("notChanged", key, String.valueOf(value)));
+                    diff.add(new FieldData("notChanged", key, value));
                 } else {
                     diff.add(new FieldData("changedFrom", key, String.valueOf(fileData1.get(key))));
-                    diff.add(new FieldData("changedTo", key, String.valueOf(value)));
+                    diff.add(new FieldData("changedTo", key, value));
                 }
             } else if (fileData1.containsKey(key) && !fileData2.containsKey(key)) {
-                diff.add(new FieldData("deleted", key, String.valueOf(value)));
+                diff.add(new FieldData("deleted", key, value));
             } else if (!fileData1.containsKey(key) && fileData2.containsKey(key)) {
-                diff.add(new FieldData("added", key, String.valueOf(value)));
+                diff.add(new FieldData("added", key, value));
             }
         });
         return diff;
