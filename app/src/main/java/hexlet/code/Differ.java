@@ -14,18 +14,18 @@ public class Differ {
         var diff = new ArrayList<FieldData>();
         sortedMergedData.forEach((key, value) -> {
             if (fileData1.containsKey(key) && fileData2.containsKey(key)) {
-                var valueFieldFile1 = fileData1.get(key).toString();
-                var valueFieldFile2 = fileData2.get(key).toString(); // проверить чтобы не обращаться по несуществующему ключу
+                var valueFieldFile1 = String.valueOf(fileData1.get(key));
+                var valueFieldFile2 = String.valueOf(fileData2.get(key));
                 if (valueFieldFile1.equals(valueFieldFile2)) {
-                    diff.add(new FieldData("notChanged", key, value.toString()));
+                    diff.add(new FieldData("notChanged", key, String.valueOf(value)));
                 } else {
-                    diff.add(new FieldData("changedFrom", key, value.toString()));
-                    diff.add(new FieldData("changedTo", key, value.toString()));
+                    diff.add(new FieldData("changedFrom", key, String.valueOf(fileData1.get(key))));
+                    diff.add(new FieldData("changedTo", key, String.valueOf(value)));
                 }
             } else if (fileData1.containsKey(key) && !fileData2.containsKey(key)) {
-                diff.add(new FieldData("deleted", key, value.toString()));
+                diff.add(new FieldData("deleted", key, String.valueOf(value)));
             } else if (!fileData1.containsKey(key) && fileData2.containsKey(key)) {
-                diff.add(new FieldData("added", key, value.toString()));
+                diff.add(new FieldData("added", key, String.valueOf(value)));
             }
         });
         return diff;
