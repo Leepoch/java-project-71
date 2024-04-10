@@ -40,6 +40,7 @@ public class Formatter {
                 diffInStylish.append(getField("+", field.getKey(), field.getValue()));
             }
         }
+        diffInStylish.append("}");
         return diffInStylish.toString();
     }
 
