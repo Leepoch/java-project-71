@@ -22,14 +22,11 @@ public class Formatter {
             throw new Exception("Invalid format");
         }
         var diff = Differ.getDiff(fileData1, fileData2);
-        var diffInFormat = "";
-        if (format.equals("stylish")) {
-            diffInFormat = FormatterStylish.formater(diff);
-        } else if (format.equals("plain")) {
-            diffInFormat = FormatterPlain.formatter(diff);
-        } else if (format.equals("json")) {
-            diffInFormat = FormatterJson.formater(diff);
-        }
-        return diffInFormat;
+        return switch (format) {
+            case "stylish" -> FormatterStylish.formater(diff);
+            case "plain" -> FormatterPlain.formatter(diff);
+            case "json" -> FormatterJson.formater(diff);
+            default -> "";
+        };
     }
 }

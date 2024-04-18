@@ -71,7 +71,7 @@ public class FormatterTest {
             {"type":"changedFrom","value":200,"key":"setting2"}
             {"type":"changedTo","value":300,"key":"setting2"}
             {"type":"changedFrom","value":true,"key":"setting3"}
-            {"type":"changedTo","value":"none","key":"setting3"}      
+            {"type":"changedTo","value":"none","key":"setting3"}
             """;
     @Test
     public void testDiffJsonStylish() throws Exception {
