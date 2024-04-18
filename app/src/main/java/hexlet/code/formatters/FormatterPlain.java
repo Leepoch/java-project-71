@@ -1,16 +1,15 @@
 package hexlet.code.formatters;
 
-import hexlet.code.FieldData;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class FormatterPlain {
-    public static String formatter(List<FieldData> diff) {
+    public static String formatter(ArrayList<HashMap<String, Object>> diff) {
         StringBuilder diffInStylish = new StringBuilder();
         for (var field : diff) {
-            var state = field.getState();
-            var key = field.getKey();
-            var value = field.getValue();
+            var key = String.valueOf(field.get("key"));
+            var value = field.get("value");
             if (value != null) {
                 var valueType = value.getClass().getSimpleName();
                 if (valueType.equals("LinkedHashMap") || valueType.equals("ArrayList")) {
@@ -21,7 +20,7 @@ public class FormatterPlain {
             } else {
                 value = String.valueOf(value);
             }
-            switch (state) {
+            switch (String.valueOf(field.get("type"))) {
                 case "changedFrom":
                     diffInStylish.append("Property '")
                             .append(key)

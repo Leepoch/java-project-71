@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.formatters.FormatterJson;
 import hexlet.code.formatters.FormatterPlain;
 import hexlet.code.formatters.FormatterStylish;
 
@@ -24,8 +25,10 @@ public class Formatter {
         var diffInFormat = "";
         if (format.equals("stylish")) {
             diffInFormat = FormatterStylish.formater(diff);
-        } else {
+        } else if (format.equals("plain")) {
             diffInFormat = FormatterPlain.formatter(diff);
+        } else if (format.equals("json")) {
+            diffInFormat = FormatterJson.formater(diff);
         }
         return diffInFormat;
     }
