@@ -26,7 +26,7 @@ public class App implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        System.out.println(Formatter.generate(filepath1, filepath2, format));
+        System.out.println(Formatter.formatting(filepath1, filepath2, format));
         return 0;
     }
 }

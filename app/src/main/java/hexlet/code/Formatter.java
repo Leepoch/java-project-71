@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class Formatter {
-    public static String generate(String filepath1, String filepath2, String format) throws Exception {
+    public static String formatting(String filepath1, String filepath2, String format) throws Exception {
         var fileFormat = filepath1.split("\\.")[1];
         Map<String, Object> fileData1 = new HashMap<>();
         Map<String, Object> fileData2 = new HashMap<>();
@@ -21,7 +21,7 @@ public class Formatter {
         } else {
             throw new Exception("Invalid format");
         }
-        var diff = Differ.getDiff(fileData1, fileData2);
+        var diff = Differ.generate(fileData1, fileData2);
         return switch (format) {
             case "stylish" -> FormatterStylish.formater(diff);
             case "plain" -> FormatterPlain.formatter(diff);

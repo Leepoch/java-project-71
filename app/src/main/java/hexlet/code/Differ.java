@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Differ {
-    public static ArrayList<HashMap<String, Object>> getDiff(Map<String, Object> file1, Map<String, Object> file2) {
+    public static ArrayList<HashMap<String, Object>> generate(Map<String, Object> file1, Map<String, Object> file2) {
         Map<String, Object> mergedData = new HashMap<>(file1);
         mergedData.putAll(file2);
         var diff = new ArrayList<HashMap<String, Object>>();

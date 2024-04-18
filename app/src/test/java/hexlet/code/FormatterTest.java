@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
-import static hexlet.code.Formatter.generate;
+import static hexlet.code.Formatter.formatting;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FormatterTest {
@@ -82,7 +82,7 @@ public class FormatterTest {
         File file2 = new File(classLoader.getResource(resourceName2).getFile());
         String absolutePath1 = file1.getAbsolutePath();
         String absolutePath2 = file2.getAbsolutePath();
-        var actual = generate(absolutePath1, absolutePath2, "stylish");
+        var actual = formatting(absolutePath1, absolutePath2, "stylish");
         assertEquals(EXPECTED_VALUE_STYLISH, actual);
     }
     @Test
@@ -94,7 +94,7 @@ public class FormatterTest {
         File file2 = new File(classLoader.getResource(resourceNameYml2).getFile());
         String absolutePath1 = file1.getAbsolutePath();
         String absolutePath2 = file2.getAbsolutePath();
-        var actual = generate(absolutePath1, absolutePath2, "stylish");
+        var actual = formatting(absolutePath1, absolutePath2, "stylish");
         assertEquals(EXPECTED_VALUE_STYLISH, actual);
     }
     @Test
@@ -106,7 +106,7 @@ public class FormatterTest {
         File file2 = new File(classLoader.getResource(resourceNameYml2).getFile());
         String absolutePath1 = file1.getAbsolutePath();
         String absolutePath2 = file2.getAbsolutePath();
-        var actual = generate(absolutePath1, absolutePath2, "plain");
+        var actual = formatting(absolutePath1, absolutePath2, "plain");
         assertEquals(EXPECTED_VALUE_PLAIN, actual);
     }
     @Test
@@ -118,7 +118,7 @@ public class FormatterTest {
         File file2 = new File(classLoader.getResource(resourceNameYml2).getFile());
         String absolutePath1 = file1.getAbsolutePath();
         String absolutePath2 = file2.getAbsolutePath();
-        var actual = generate(absolutePath1, absolutePath2, "plain");
+        var actual = formatting(absolutePath1, absolutePath2, "plain");
         assertEquals(EXPECTED_VALUE_PLAIN, actual);
     }
     @Test
@@ -130,7 +130,7 @@ public class FormatterTest {
         File file2 = new File(classLoader.getResource(resourceNameYml2).getFile());
         String absolutePath1 = file1.getAbsolutePath();
         String absolutePath2 = file2.getAbsolutePath();
-        var actual = generate(absolutePath1, absolutePath2, "json");
+        var actual = formatting(absolutePath1, absolutePath2, "json");
         assertEquals(EXPECTED_VALUE_JSON, actual);
     }
 }
