@@ -5,7 +5,7 @@ import java.io.File;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FormatterTest {
-    private final String EXPECTED_VALUE_STYLISH = """
+    private final String expectedValueStylish = """
             {
                 chars1: [a, b, c]
               - chars2: [d, e, f]
@@ -31,7 +31,7 @@ public class FormatterTest {
               - setting3: true
               + setting3: none
             }""";
-    private final String EXPECTED_VALUE_PLAIN = """
+    private final String expectedValuePlain = """
             Property 'chars2' was updated. From [complex value] to false
             Property 'checked' was updated. From false to true
             Property 'default' was updated. From null to [complex value]
@@ -45,7 +45,7 @@ public class FormatterTest {
             Property 'setting1' was updated. From 'Some value' to 'Another value'
             Property 'setting2' was updated. From 200 to 300
             Property 'setting3' was updated. From true to 'none'""";
-    private final String EXPECTED_VALUE_JSON = """
+    private final String expectedValueJson = """
             {"type":"notChanged","value":["a","b","c"],"key":"chars1"}
             {"type":"changedFrom","value":["d","e","f"],"key":"chars2"}
             {"type":"changedTo","value":false,"key":"chars2"}
@@ -80,7 +80,7 @@ public class FormatterTest {
         String absolutePath1 = file1.getAbsolutePath();
         String absolutePath2 = file2.getAbsolutePath();
         var actual = Differ.generate(absolutePath1, absolutePath2, "stylish");
-        assertEquals(EXPECTED_VALUE_STYLISH, actual);
+        assertEquals(expectedValueStylish, actual);
     }
     @Test
     public void testDiffYmlStylish() throws Exception {
@@ -92,7 +92,7 @@ public class FormatterTest {
         String absolutePath1 = file1.getAbsolutePath();
         String absolutePath2 = file2.getAbsolutePath();
         var actual = Differ.generate(absolutePath1, absolutePath2, "stylish");
-        assertEquals(EXPECTED_VALUE_STYLISH, actual);
+        assertEquals(expectedValueStylish, actual);
     }
     @Test
     public void testDiffJsonPlain() throws Exception {
@@ -104,7 +104,7 @@ public class FormatterTest {
         String absolutePath1 = file1.getAbsolutePath();
         String absolutePath2 = file2.getAbsolutePath();
         var actual = Differ.generate(absolutePath1, absolutePath2, "plain");
-        assertEquals(EXPECTED_VALUE_PLAIN, actual);
+        assertEquals(expectedValuePlain, actual);
     }
     @Test
     public void testDiffYmlPlain() throws Exception {
@@ -116,7 +116,7 @@ public class FormatterTest {
         String absolutePath1 = file1.getAbsolutePath();
         String absolutePath2 = file2.getAbsolutePath();
         var actual = Differ.generate(absolutePath1, absolutePath2, "plain");
-        assertEquals(EXPECTED_VALUE_PLAIN, actual);
+        assertEquals(expectedValuePlain, actual);
     }
     @Test
     public void testDiffJsonInJson() throws Exception {
@@ -128,6 +128,6 @@ public class FormatterTest {
         String absolutePath1 = file1.getAbsolutePath();
         String absolutePath2 = file2.getAbsolutePath();
         var actual = Differ.generate(absolutePath1, absolutePath2, "json");
-        assertEquals(EXPECTED_VALUE_JSON, actual);
+        assertEquals(expectedValueJson, actual);
     }
 }

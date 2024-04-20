@@ -9,7 +9,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class Parser {
     public static Map<String, Object> parse(String filepath, String type) throws Exception {
