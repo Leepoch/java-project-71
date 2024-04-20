@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class FormatterJson {
-    public static String formater(ArrayList<HashMap<String, Object>> diff) throws JsonProcessingException {
+    public static String formatter(ArrayList<HashMap<String, Object>> diff) throws JsonProcessingException {
         var diffInJson = new StringBuilder();
         for (var field : diff) {
             ObjectMapper objectMapper = new ObjectMapper();

@@ -7,19 +7,23 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Parser {
-    public static Map<String, Object> jsonIntoMap(String filepath) throws Exception {
+    public static Map<String, Object> parse(String filepath, String type) throws Exception {
         Path absolutePath = Paths.get(filepath).toAbsolutePath().normalize();
-        String jsonData = Files.readString(absolutePath);
+        String data = Files.readString(absolutePath);
         ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(jsonData, new TypeReference<>() { });
-    }
-    public static Map<String, Object> ymlIntoMap(String filepath) throws Exception {
-        Path absolutePath = Paths.get(filepath).toAbsolutePath().normalize();
-        String ymlData = Files.readString(absolutePath);
         YAMLMapper yamlMapper = new YAMLMapper();
-        return yamlMapper.readValue(ymlData, new TypeReference<>() { });
+        var parsedData = new HashMap<String, Object>();
+        if (type.equals("json")) {
+            parsedData = objectMapper.readValue(data, new TypeReference<>() { });
+        } else if (type.equals("yml")) {
+            parsedData = yamlMapper.readValue(data, new TypeReference<>() { });
+        }
+        return parsedData;
     }
+
 }

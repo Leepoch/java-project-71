@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class FormatterStylish {
-    public static String formater(ArrayList<HashMap<String, Object>> diff) {
+    public static String formatter(ArrayList<HashMap<String, Object>> diff) {
         StringBuilder diffInStylish = new StringBuilder();
         diffInStylish.append("{\n");
         for (var field : diff) {
