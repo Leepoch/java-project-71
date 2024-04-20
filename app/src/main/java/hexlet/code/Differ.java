@@ -6,6 +6,9 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Differ {
+    public static String generate(String filepath1, String filepath2) throws Exception {
+        return generate(filepath1, filepath2, "stylish");
+    }
     public static String generate(String filepath1, String filepath2, String format) throws Exception {
         var fileFormat = filepath1.split("\\.")[1];
         var parsedData1 = Parser.parse(filepath1, fileFormat);
