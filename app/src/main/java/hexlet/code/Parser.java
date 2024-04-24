@@ -19,7 +19,7 @@ public class Parser {
         var parsedData = new HashMap<String, Object>();
         if (type.equals("json")) {
             parsedData = objectMapper.readValue(data, new TypeReference<>() { });
-        } else if (type.equals("yml")) {
+        } else if (type.equals("yml") || type.equals("yaml")) {
             parsedData = yamlMapper.readValue(data, new TypeReference<>() { });
         }
         return parsedData;
