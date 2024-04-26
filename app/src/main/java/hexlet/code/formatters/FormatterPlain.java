@@ -9,17 +9,7 @@ public class FormatterPlain {
         StringBuilder diffInStylish = new StringBuilder();
         for (var field : diff) {
             var key = String.valueOf(field.get("key"));
-            var value = field.get("value");
-            if (value != null) {
-                var valueType = value.getClass().getSimpleName();
-                if (valueType.equals("LinkedHashMap") || valueType.equals("ArrayList")) {
-                    value = "[complex value]";
-                } else if (valueType.equals("String")) {
-                    value = "'" + value + "'";
-                }
-            } else {
-                value = String.valueOf(value);
-            }
+            var value = Stringify.stringify(field.get("value"));
             switch (String.valueOf(field.get("type"))) {
                 case "changedFrom":
                     diffInStylish.append("Property '")
