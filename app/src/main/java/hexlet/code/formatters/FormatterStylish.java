@@ -14,10 +14,16 @@ public class FormatterStylish {
                 case "notChanged":
                     diffInStylish.append(getField(" ", key, value));
                     break;
-                case "changedFrom", "deleted":
+                case "changed":
+                    var value1 = field.get("value1");
+                    var value2 = field.get("value2");
+                    diffInStylish.append(getField("-", key, value1));
+                    diffInStylish.append(getField("+", key, value2));
+                    break;
+                case "deleted":
                     diffInStylish.append(getField("-", key, value));
                     break;
-                case "changedTo", "added":
+                case "added":
                     diffInStylish.append(getField("+", key, value));
                     break;
                 default:

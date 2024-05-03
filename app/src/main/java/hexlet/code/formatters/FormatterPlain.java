@@ -3,23 +3,25 @@ package hexlet.code.formatters;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class FormatterPlain {
     public static String formatter(ArrayList<HashMap<String, Object>> diff) {
         StringBuilder diffInStylish = new StringBuilder();
         for (var field : diff) {
             var key = String.valueOf(field.get("key"));
-            var value = Stringify.stringify(field.get("value"));
+            var value = stringify(field.get("value"));
             switch (String.valueOf(field.get("type"))) {
-                case "changedFrom":
+                case "changed":
+                    var value1 = stringify(field.get("value1"));
+                    var value2 = stringify(field.get("value2"));
                     diffInStylish.append("Property '")
                             .append(key)
                             .append("' was updated. From ")
-                            .append(value)
-                            .append(" to ");
-                    break;
-                case "changedTo":
-                    diffInStylish.append(value)
+                            .append(value1)
+                            .append(" to ")
+                            .append(value2)
                             .append("\n");
                     break;
                 case "deleted":
@@ -40,5 +42,19 @@ public class FormatterPlain {
             }
         }
         return diffInStylish.toString().trim();
+    }
+
+    public static Object stringify(Object value) {
+        var result = value;
+        if (value != null) {
+            if (value instanceof List || value instanceof Map) {
+                result = "[complex value]";
+            } else if (value instanceof String) {
+                result = "'" + value + "'";
+            }
+        } else {
+            result = String.valueOf(value);
+        }
+        return result;
     }
 }

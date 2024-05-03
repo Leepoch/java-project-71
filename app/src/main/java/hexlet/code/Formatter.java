@@ -8,8 +8,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Formatter {
-    public static String chooseFormatter(ArrayList<HashMap<String, Object>> diff,
-                                         String format) throws JsonProcessingException {
+    public static String chooseFormatter(
+            ArrayList<HashMap<String, Object>> diff,
+            String format
+    ) throws JsonProcessingException {
         return switch (format) {
             case "stylish" -> FormatterStylish.formatter(diff);
             case "plain" -> FormatterPlain.formatter(diff);

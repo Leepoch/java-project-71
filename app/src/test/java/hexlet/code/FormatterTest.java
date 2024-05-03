@@ -47,28 +47,20 @@ public class FormatterTest {
             Property 'setting3' was updated. From true to 'none'""";
     private final String expectedValueJson = """
             {"type":"notChanged","value":["a","b","c"],"key":"chars1"}
-            {"type":"changedFrom","value":["d","e","f"],"key":"chars2"}
-            {"type":"changedTo","value":false,"key":"chars2"}
-            {"type":"changedFrom","value":false,"key":"checked"}
-            {"type":"changedTo","value":true,"key":"checked"}
-            {"type":"changedFrom","value":null,"key":"default"}
-            {"type":"changedTo","value":["value1","value2"],"key":"default"}
-            {"type":"changedFrom","value":45,"key":"id"}
-            {"type":"changedTo","value":null,"key":"id"}
+            {"value2":false,"value1":["d","e","f"],"type":"changed","key":"chars2"}
+            {"value2":true,"value1":false,"type":"changed","key":"checked"}
+            {"value2":["value1","value2"],"value1":null,"type":"changed","key":"default"}
+            {"value2":null,"value1":45,"type":"changed","key":"id"}
             {"type":"deleted","value":"value1","key":"key1"}
             {"type":"added","value":"value2","key":"key2"}
             {"type":"notChanged","value":[1,2,3,4],"key":"numbers1"}
-            {"type":"changedFrom","value":[2,3,4,5],"key":"numbers2"}
-            {"type":"changedTo","value":[22,33,44,55],"key":"numbers2"}
+            {"value2":[22,33,44,55],"value1":[2,3,4,5],"type":"changed","key":"numbers2"}
             {"type":"deleted","value":[3,4,5],"key":"numbers3"}
             {"type":"added","value":[4,5,6],"key":"numbers4"}
             {"type":"added","value":{"nestedKey":"value","isNested":true},"key":"obj1"}
-            {"type":"changedFrom","value":"Some value","key":"setting1"}
-            {"type":"changedTo","value":"Another value","key":"setting1"}
-            {"type":"changedFrom","value":200,"key":"setting2"}
-            {"type":"changedTo","value":300,"key":"setting2"}
-            {"type":"changedFrom","value":true,"key":"setting3"}
-            {"type":"changedTo","value":"none","key":"setting3"}
+            {"value2":"Another value","value1":"Some value","type":"changed","key":"setting1"}
+            {"value2":300,"value1":200,"type":"changed","key":"setting2"}
+            {"value2":"none","value1":true,"type":"changed","key":"setting3"}
             """;
     @Test
     public void testDiffJsonStylish() throws Exception {

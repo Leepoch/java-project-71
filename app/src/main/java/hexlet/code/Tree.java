@@ -18,26 +18,7 @@ public class Tree {
         var sortedMergedData = new TreeMap<>(mergedData);
         sortedMergedData.forEach((key, value) -> {
             if (parsedData1.containsKey(key) && parsedData2.containsKey(key)) {
-                var valueFieldFile1 = String.valueOf(parsedData1.get(key));
-                var valueFieldFile2 = String.valueOf(parsedData2.get(key));
-                if (valueFieldFile1.equals(valueFieldFile2)) {
-                    var typeWithValue = new HashMap<String, Object>();
-                    typeWithValue.put("type", "notChanged");
-                    typeWithValue.put("value", value);
-                    typeWithValue.put("key", key);
-                    diff.add(typeWithValue);
-                } else {
-                    var typeWithValue1 = new HashMap<String, Object>();
-                    var typeWithValue2 = new HashMap<String, Object>();
-                    typeWithValue1.put("type", "changedFrom");
-                    typeWithValue1.put("key", key);
-                    typeWithValue1.put("value", parsedData1.get(key));
-                    typeWithValue2.put("type", "changedTo");
-                    typeWithValue2.put("value", value);
-                    typeWithValue2.put("key", key);
-                    diff.add(typeWithValue1);
-                    diff.add(typeWithValue2);
-                }
+                comparingObjects(parsedData1, parsedData2, diff, key, value);
             } else if (parsedData1.containsKey(key) && !parsedData2.containsKey(key)) {
                 var typeWithValue = new HashMap<String, Object>();
                 typeWithValue.put("type", "deleted");
@@ -53,5 +34,30 @@ public class Tree {
             }
         });
         return diff;
+    }
+
+    public static void comparingObjects(
+            Map<String, Object> parsedData1,
+            Map<String, Object> parsedData2,
+            ArrayList<HashMap<String, Object>> diff,
+            String key,
+            Object value
+    ) {
+        var valueFieldFile1 = String.valueOf(parsedData1.get(key));
+        var valueFieldFile2 = String.valueOf(parsedData2.get(key));
+        if (valueFieldFile1.equals(valueFieldFile2)) {
+            var typeWithValue = new HashMap<String, Object>();
+            typeWithValue.put("type", "notChanged");
+            typeWithValue.put("value", value);
+            typeWithValue.put("key", key);
+            diff.add(typeWithValue);
+        } else {
+            var typeWithValue = new HashMap<String, Object>();
+            typeWithValue.put("type", "changed");
+            typeWithValue.put("key", key);
+            typeWithValue.put("value1", parsedData1.get(key));
+            typeWithValue.put("value2", value);
+            diff.add(typeWithValue);
+        }
     }
 }
