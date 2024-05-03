@@ -7,11 +7,10 @@ import java.util.TreeMap;
 
 public class Tree {
     public static ArrayList<HashMap<String, Object>> generateTree(
-            String filepath1, String filepath2
+            String data1, String data2, String fileFormat
     ) throws Exception {
-        var fileFormat = filepath1.split("\\.")[1];
-        var parsedData1 = Parser.parse(filepath1, fileFormat);
-        var parsedData2 = Parser.parse(filepath2, fileFormat);
+        var parsedData1 = Parser.parse(data1, fileFormat);
+        var parsedData2 = Parser.parse(data2, fileFormat);
         Map<String, Object> mergedData = new HashMap<>();
         mergedData.putAll(parsedData1);
         mergedData.putAll(parsedData2);
