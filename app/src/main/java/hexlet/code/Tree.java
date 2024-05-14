@@ -1,6 +1,9 @@
 package hexlet.code;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Tree {
     public static ArrayList<HashMap<String, Object>> generateTree(

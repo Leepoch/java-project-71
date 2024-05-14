@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e53a3c7-847c-461e-aac2-f48a460aa35c" name="Changes" comment="update FormatterTest">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/hexlet/code/Formatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/hexlet/code/Formatter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/hexlet/code/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/hexlet/code/Tree.java" afterDir="false" />
-    </list>
+    <list default="true" id="6e53a3c7-847c-461e-aac2-f48a460aa35c" name="Changes" comment="update tree" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -367,11 +364,18 @@
       <option name="project" value="LOCAL" />
       <updated>1715338498767</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="update tree">
+      <option name="closed" value="true" />
+      <created>1715681647880</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1715681647880</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="move files and update readme" />
     <MESSAGE value="add attached files" />
     <MESSAGE value="add gradle wrapper" />
     <MESSAGE value="add gradle init" />
@@ -396,6 +400,7 @@
     <MESSAGE value="update gradle.yml" />
     <MESSAGE value="update gradle.yml 2" />
     <MESSAGE value="update FormatterTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="update FormatterTest" />
+    <MESSAGE value="update tree" />
+    <option name="LAST_COMMIT_MESSAGE" value="update tree" />
   </component>
 </project>
